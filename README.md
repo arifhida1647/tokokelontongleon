@@ -1,6 +1,4 @@
-Berikut adalah README yang telah diperbarui dengan informasi akun login:
 
----
 
 # Proyek CodeIgniter 4
 
