@@ -82,7 +82,7 @@ class Invoice extends Controller
                 'kembalian' => $kembalian,
                 'catatan' => $catatan,
                 'status' => 'sukses',
-                'tanggal' => date('Y-m-d H:i:s')
+                'tanggal' => date('Y-m-d')
             ];
 
             $this->model->save($data);
