@@ -36,7 +36,7 @@
                                     <!-- FORM INPUT DATA -->
                                     <input type="hidden" id="inputId" name="id_stok">
                                     <div class="mb-3 row">
-                                        <label for="inputItem" class="col-sm-2 col-form-label">Unit</label>
+                                        <label for="inputItem" class="col-sm-2 col-form-label">Item</label>
                                         <div class="col-sm-10">
                                             <select id="inputItem" class="form-select" name="id_item">
                                                 <?php
@@ -119,7 +119,7 @@
                                             <td><?= ++$nomor ?></td>
                                             <td><?= $v['id_stok'] ?></td>
                                             <td><?= $v['nama_item'] ?></td>
-                                            <td><?= $v['tipe'] ?></td>
+                                            <td><?= $v['nama_kategori'] ?></td>
                                             <td><?= $v['nama_pemasok'] ?></td>
                                             <td><?= $v['jumlah'] ?></td>
                                             <td><?= $v['username_user'] ?></td>

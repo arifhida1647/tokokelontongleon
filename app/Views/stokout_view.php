@@ -119,7 +119,7 @@
                                             <td><?= ++$nomor ?></td>
                                             <td><?= $v['id_stok'] ?></td>
                                             <td><?= $v['nama_item'] ?></td>
-                                            <td><?= $v['tipe'] ?></td>
+                                            <td><?= $v['nama_kategori'] ?></td>
                                             <td><?= $v['nama_pemasok'] ?></td>
                                             <td><?= $v['jumlah'] ?></td>
                                             <td><?= $v['username_user'] ?></td>
