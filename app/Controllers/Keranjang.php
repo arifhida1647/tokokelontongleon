@@ -148,8 +148,9 @@ class Keranjang extends Controller
 
         // Mengambil data keranjang berdasarkan id_user
         $data['dataKeranjang'] = $this->model
-            ->select('tb_transaksi.*, tb_item.nama_item as item_name, tb_item.harga as item_price')
+            ->select('tb_transaksi.*, tb_item.nama_item as item_name, tb_item.harga as item_price, tb_unit.nama_unit')
             ->join('tb_item', 'tb_transaksi.id_item = tb_item.id')
+            ->join('tb_unit', 'tb_item.id_unit = tb_unit.id', 'left') // Menambahkan join dengan tb_unit
             ->where('id_user', $admin_id)
             ->orderBy('id_transaksi', 'desc')
             ->findAll();
@@ -162,7 +163,9 @@ class Keranjang extends Controller
 
         // Mengambil data item, user, pelanggan
         $data['dataItem'] = $this->modelItem
-            ->where('stok >', 0)
+            ->select('tb_item.*, tb_unit.nama_unit') // Pilih kolom yang diinginkan
+            ->join('tb_unit', 'tb_item.id_unit = tb_unit.id', 'left') // Sesuaikan tipe join jika diperlukan (inner, left, right, dll.)
+            ->where('tb_item.stok >', 0)
             ->findAll();
         $data['dataUser'] = $this->modelUser->findAll();
         $data['dataPelanggan'] = $this->modelPelanggan->findAll();

@@ -73,7 +73,7 @@
                                             $nomor = 0;
                                             foreach ($dataItem as $k => $v) {
                                                 ?>
-                                                <option value=<?= $v['id'] ?>><?= $v['nama_item'] ?></option>
+                                                <option value=<?= $v['id'] ?>><?= $v['nama_item'] ?> | Stok: <?= $v['stok'] ?> | Unit: <?= $v['nama_unit'] ?> </option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -170,6 +170,7 @@
                                 <th>item </th>
                                 <th>harga item</th>
                                 <th>jumlah item</th>
+                                <th>unit</th>
                                 <th>diskon item</th>
                                 <th>subtotal</th>
                                 <th>aksi</th>
@@ -187,6 +188,7 @@
                                         <td><?= $v['item_name'] ?></td>
                                         <td>Rp <?= $v['item_price'] ?></td>
                                         <td><?= $v['jumlah_item'] ?></td>
+                                        <td><?= $v['nama_unit']?></td>
                                         <td><?= $v['diskon_item'] ?></td>
                                         <td>Rp <?= ($v['harga_item'] * $v['jumlah_item']) - $v['diskon_item'] ?></td>
                                         <td>
