@@ -136,6 +136,26 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal Konfirmasi -->
+            <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirmationModalLabel">Konfirmasi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah Anda yakin ingin menyimpan data ini?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-primary" id="confirmSave">Ya, Simpan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <?php echo view('footer'); ?>
@@ -189,38 +209,45 @@
             var jumlah = $('#inputJumlah').val();
             var keterangan = $('#inputKeterangan').val();
 
-
             if (jumlah.trim() === '') {
-                $('.error').html('nama kategori harus diisi.');
+                $('.error').html('Nama kategori harus diisi.');
                 $('.error').show();
                 return; // Berhenti eksekusi jika validasi gagal
             }
 
-            $.ajax({
-                url: "<?= site_url('stokin/simpan') ?>",
-                type: "POST",
-                data: {
-                    id: id_stok,
-                    id_item: id_item,
-                    id_pemasok: id_pemasok,
-                    jumlah: jumlah,
-                    keterangan: keterangan,
-                },
-                success: function (hasil) {
-                    var obj = $.parseJSON(hasil);
-                    if (obj.sukses === false) {
-                        $('.sukses').hide();
-                        $('.error').show();
-                        $('.error').html(obj.error);
-                    } else {
-                        $('.error').hide();
-                        $('.sukses').show();
-                        $('.sukses').html(obj.sukses);
+            // Tampilkan modal konfirmasi
+            $('#confirmationModal').modal('show');
+
+            // Simpan data ketika konfirmasi disetujui
+            $('#confirmSave').off('click').on('click', function () {
+                $.ajax({
+                    url: "<?= site_url('stokin/simpan') ?>",
+                    type: "POST",
+                    data: {
+                        id: id_stok,
+                        id_item: id_item,
+                        id_pemasok: id_pemasok,
+                        jumlah: jumlah,
+                        keterangan: keterangan,
+                    },
+                    success: function (hasil) {
+                        var obj = $.parseJSON(hasil);
+                        if (obj.sukses === false) {
+                            $('.sukses').hide();
+                            $('.error').show();
+                            $('.error').html(obj.error);
+                        } else {
+                            $('.error').hide();
+                            $('.sukses').show();
+                            $('.sukses').html(obj.sukses);
+                        }
                     }
-                }
+                });
+                bersihkan();
+                $('#confirmationModal').modal('hide'); // Tutup modal setelah data disimpan
             });
-            bersihkan();
         });
+
     </script>
     <script>
         $(function () {

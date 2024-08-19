@@ -66,9 +66,11 @@
                                                 </button>
                                             </td>
                                             <td>
-                                                <a href="<?php echo base_url('invoiceDetail/' . $v['id']); ?>"><button
-                                                        type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal">View</button>
+                                                <a href="<?php echo base_url('invoiceDetail/' . $v['id']); ?>"
+                                                    target="_blank">
+                                                    <button type="button" class="btn btn-warning btn-sm">
+                                                        Print
+                                                    </button>
                                                 </a>
                                             </td>
                                         </tr>

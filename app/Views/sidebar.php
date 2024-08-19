@@ -79,7 +79,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Admin'): ?>
+                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Admin' || session()->get('role') == 'Kasir'): ?>
                     <li class="nav-item">
                         <a href="/" class="nav-link <?= (service('uri')->getSegment(1) == '') ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-house" style="color: #FF8225;"></i>
@@ -89,14 +89,14 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Owner'): ?>
+                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Admin'): ?>
                     <li class="nav-item">
                         <a href=""
                             class="nav-link <?= (service('uri')->getSegment(1) == 'items' || service('uri')->getSegment(1) == 'stokin' || service('uri')->getSegment(1) == 'stokout' ||
                                 service('uri')->getSegment(1) == 'unit' || service('uri')->getSegment(1) == 'kategori') ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-table-list" style="color: #FF8225;"></i>
                             <p class="text-white">
-                                Items
+                                Daftar Items
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -158,7 +158,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ((session()->get('role') == 'Owner')): ?>
+                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Admin' ): ?>
                     <li class="nav-item">
                         <a href="<?php echo base_url('admin') ?>"
                             class="nav-link <?= (service('uri')->getSegment(1) == 'admin') ? 'active' : '' ?>">
@@ -169,7 +169,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if (session()->get('role') == 'Kasir' || (session()->get('role') == 'Owner')): ?>
+                <?php if (session()->get('role') == 'Kasir' || (session()->get('role') == 'Owner') || session()->get('role') == 'Admin' ): ?>
                     <li class="nav-item">
                         <a href="<?php echo base_url('keranjang') ?>"
                             class="nav-link <?= (service('uri')->getSegment(1) == 'keranjang') ? 'active' : '' ?>">
@@ -180,7 +180,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Kasir'): ?>
+                <?php if ((session()->get('role') == 'Owner') || session()->get('role') == 'Kasir' || session()->get('role') == 'Admin' ): ?>
                     <li class="nav-item">
                         <a href="<?php echo base_url('invoice') ?>"
                             class="nav-link <?= (service('uri')->getSegment(1) == 'invoice') ? 'active' : '' ?>">

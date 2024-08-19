@@ -41,8 +41,7 @@
                                 <?php } ?>
                             </select>
                         </div>
-                        <a href="<?php echo base_url('pelanggan') ?>"><button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Tambah Pelanggan</button></a>
+                        
                         <button type="button" class="btn btn-primary" id="tombolGenerate">Buat</button>
                     </div>
                 </div>
