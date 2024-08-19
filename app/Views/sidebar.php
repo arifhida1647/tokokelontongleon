@@ -96,7 +96,7 @@
                                 service('uri')->getSegment(1) == 'unit' || service('uri')->getSegment(1) == 'kategori') ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-table-list" style="color: #FF8225;"></i>
                             <p class="text-white">
-                                Daftar Items
+                                Daftar Barang
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
