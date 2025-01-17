@@ -34,6 +34,7 @@ class Database extends Config
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug' => true,
+        'port' => 6543,
         'charset' => 'utf8',
         'DBCollat' => 'utf8_general_ci',
         'swapPre' => '',
