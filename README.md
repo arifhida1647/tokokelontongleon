@@ -60,7 +60,7 @@ Setelah semua langkah instalasi selesai, jalankan server pengembangan CodeIgnite
 php spark serve
 ```
 
-Proyek akan berjalan di `http://localhost:8080`.
+Proyek akan berjalan di `https://tokokelontongleon-production.up.railway.app`.
 
 ## Struktur Direktori
 

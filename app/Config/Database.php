@@ -26,9 +26,9 @@ class Database extends Config
      */
     public array $default = [
         'DSN' => '',
-        'hostname' => 'db.xekcahifsypweyqpbopj.supabase.co',
+        'hostname' => 'db.xekcahifsypweyqpbopj.supabase.co',  // pastikan hostname yang benar
         'username' => 'postgres',
-        'password' => 'HzpP6zZjgVjG8ykp',
+        'password' => 'HzpP6zZjgVjG8ykp',  // pastikan password yang benar
         'database' => 'postgres',
         'DBDriver' => 'Postgre',
         'DBPrefix' => '',
@@ -37,7 +37,7 @@ class Database extends Config
         'charset' => 'utf8',
         'swapPre' => '',
         'failover' => [],
-        'port' => 5432,
+        'port' => 5432,  // sesuaikan port yang benar
         'dateFormat' => [
             'date' => 'Y-m-d',
             'datetime' => 'Y-m-d H:i:s',
