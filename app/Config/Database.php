@@ -25,19 +25,18 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN' => '',
-        'hostname' => 'db.xekcahifsypweyqpbopj.supabase.co',  // pastikan hostname yang benar
+        'DSN'      => 'pgsql:host=db.xekcahifsypweyqpbopj.supabase.co;port=6543;dbname=postgres;sslmode=require',
+        'hostname' => 'db.xekcahifsypweyqpbopj.supabase.co',
         'username' => 'postgres',
-        'password' => 'HzpP6zZjgVjG8ykp',  // pastikan password yang benar
+        'password' => 'HzpP6zZjgVjG8ykp',
         'database' => 'postgres',
         'DBDriver' => 'Postgre',
+        'port'     => 6543,
         'DBPrefix' => '',
         'pConnect' => false,
-        'DBDebug' => true,
-        'charset' => 'utf8',
-        'swapPre' => '',
+        'DBDebug'  => true,
+        'charset'  => 'utf8',
         'failover' => [],
-        'port' => 5432,  // sesuaikan port yang benar
         'dateFormat' => [
             'date' => 'Y-m-d',
             'datetime' => 'Y-m-d H:i:s',
