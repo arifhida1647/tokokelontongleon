@@ -14,7 +14,7 @@ class Pelanggan extends BaseController
 	{
 		// $this->logAction('delete', $id);
 		$this->model->delete($id);
-		return redirect()->to('users');
+		return redirect()->to('pelanggan');
 	}
 	public function edit($id)
 	{

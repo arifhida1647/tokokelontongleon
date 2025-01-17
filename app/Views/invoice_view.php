@@ -51,23 +51,17 @@
                                         From
                                         <address>
                                             <strong>Toko Sembako Leon</strong><br>
-                                            795 Folsom Ave, Suite 600<br>
-                                            San Francisco, CA 94107<br>
-                                            Phone: (804) 123-5432<br>
-                                            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                data-cfemail="ee87808881ae8f82838f9d8f8b8b8a9d9a9b8a8781c08d8183">[email&#160;protected]</a>
+                                            Bogor,Cileungsi,Griya Alam Sentosa Blok R 10 No 12 D<br>
+                                            Phone: (0896) 11350447<br>
                                         </address>
                                     </div>
 
                                     <div class="col-sm-4 invoice-col">
                                         To
                                         <address>
-                                            <strong>John Doe</strong><br>
-                                            795 Folsom Ave, Suite 600<br>
-                                            San Francisco, CA 94107<br>
-                                            Phone: (555) 539-1037<br>
-                                            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                data-cfemail="b4dedbdcda9ad0dbd1f4d1ccd5d9c4d8d19ad7dbd9">[email&#160;protected]</a>
+                                            <strong><?= $transaksi[0]['nama_pelanggan'] ?></strong><br>
+                                            <?= $transaksi[0]['alamat_pelanggan'] ?><br>
+                                            Phone: <?= $transaksi[0]['telp_pelanggan'] ?><br>
                                         </address>
                                     </div>
 

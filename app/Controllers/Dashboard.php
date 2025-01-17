@@ -27,7 +27,7 @@ class Dashboard extends BaseController
         $data['dataInvoice'] = $this->model->select('tanggal, SUM(total_harga) as total_harga, SUM(tunai) as tunai, SUM(kembalian) as kembalian')
             ->groupBy('tanggal')
             ->orderBy('tanggal', 'desc')
-            ->where('status','sukses')
+            ->where('status', 'sukses')
             ->limit(7)
             ->findAll();
 
@@ -50,30 +50,32 @@ class Dashboard extends BaseController
         $pendingCountQuery = $this->model->select('COUNT(*) as pendingCount')
             ->where('status', 'pending')
             ->first();
-        $data['pendingCount'] = $pendingCountQuery['pendingCount'];
+        // Pastikan $pendingCountQuery bukan null atau kosong
+        $data['pendingCount'] = isset($pendingCountQuery['pendingCount']) ? $pendingCountQuery['pendingCount'] : 0;
 
         $sumPenjualanQuery = $this->model->select('SUM(total_harga) as sumPenjualan')
             ->first();
-        $data['sumPenjualan'] = $sumPenjualanQuery['sumPenjualan'];
+        // Pastikan $pendingCountQuery bukan null atau kosong
+        $data['sumPenjualan'] = isset($sumPenjualanQuery['sumPenjualan']) ? $sumPenjualanQuery['sumPenjualan'] : 0;
 
         // Menghitung jumlah data dengan status 'sukses'
         $suksesCountQuery = $this->model->select('COUNT(*) as suksesCount')
             ->where('status', 'sukses')
             ->first();
-        $data['suksesCount'] = $suksesCountQuery['suksesCount'];
+        $data['suksesCount'] = isset($suksesCountQuery['suksesCount']) ? $suksesCountQuery['suksesCount'] : 0;
 
         // Menghitung total data
         $totalCountQuery = $this->model->select('COUNT(*) as totalCount')
             ->first();
-        $data['totalCount'] = $totalCountQuery['totalCount'];
+        $data['totalCount'] = isset($totalCountQuery['totalCount']) ? $totalCountQuery['totalCount'] : 0;
 
-        $pelangganCountQuery = $this->modelPelanggan->select('COUNT(*) as totalPelanggan')
+        $pelangganCountQuery = $this->modelPelanggan->select('COUNT(*) as totalItem')
             ->first();
-        $data['totalPelanggan'] = $pelangganCountQuery['totalPelanggan'];
+        $data['totalPelanggan'] = isset($pelangganCountQuery['totalPelanggan']) ? $pelangganCountQuery['totalPelanggan'] : 0;
 
         $itemCountQuery = $this->modelItem->select('COUNT(*) as totalItem')
             ->first();
-        $data['totalItem'] = $itemCountQuery['totalItem'];
+        $data['totalItem'] = isset($itemCountQuery['totalItem']) ? $itemCountQuery['totalItem'] : 0;
 
 
         // Menambahkan labels dan totals ke dalam data

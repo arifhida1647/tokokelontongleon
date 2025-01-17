@@ -160,7 +160,7 @@ class Invoice extends Controller
     {
         $data['dataInvoice'] = $this->model->select('tb_penjualan.*, tb_pelanggan.nama_pelanggan, tb_users.username')
             ->join('tb_pelanggan', 'tb_penjualan.id_pelanggan = tb_pelanggan.id')
-            ->join('tb_users','tb_penjualan.id_user = tb_users.id')
+            ->join('tb_users', 'tb_penjualan.id_user = tb_users.id')
             ->findAll();
         return view('penjualan_view', $data);
     }
@@ -168,10 +168,13 @@ class Invoice extends Controller
     {
         $data['data'] = $this->model->where('id', $id)
             ->findAll();
-        $data['transaksi'] = $this->modelKeranjang->select('tb_transaksi.*, tb_item.nama_item, tb_item.harga')
+        $data['transaksi'] = $this->modelKeranjang->select('tb_transaksi.*, tb_item.nama_item, tb_item.harga, tb_pelanggan.*, tb_penjualan.id_pelanggan')
             ->join('tb_item', 'tb_transaksi.id_item = tb_item.id')
+            ->join('tb_penjualan', 'tb_transaksi.id_penjualan = tb_penjualan.id')
+            ->join('tb_pelanggan', 'tb_penjualan.id_pelanggan = tb_pelanggan.id')
             ->where('tb_transaksi.id_penjualan', $id)
             ->findAll();
+
 
         return view('invoice_view', $data);
         ;

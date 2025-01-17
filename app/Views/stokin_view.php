@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
-                                        <label for="inputPemasok" class="col-sm-2 col-form-label">Unit</label>
+                                        <label for="inputPemasok" class="col-sm-2 col-form-label">Pemasok</label>
                                         <div class="col-sm-10">
                                             <select id="inputPemasok" class="form-select" name="id_pemasok">
                                                 <?php
@@ -119,7 +119,7 @@
                                             <td><?= ++$nomor ?></td>
                                             <td><?= $v['id_stok'] ?></td>
                                             <td><?= $v['nama_item'] ?></td>
-                                            <td><?= $v['nama_kategori'] ?></td>
+                                            <td><?= $v['tipe'] ?></td>
                                             <td><?= $v['nama_pemasok'] ?></td>
                                             <td><?= $v['jumlah'] ?></td>
                                             <td><?= $v['username_user'] ?></td>

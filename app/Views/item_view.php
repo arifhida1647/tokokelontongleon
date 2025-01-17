@@ -42,26 +42,26 @@
                                     <div class="mb-3 row">
                                         <label for="inputKategori" class="col-sm-2 col-form-label">Kategori</label>
                                         <div class="col-sm-10">
-                                            <select id="inputKategori" class="form-select" name="id_kategori">
-                                                <?php
-                                                $nomor = 0;
-                                                foreach ($dataKategori as $k => $v) {
-                                                    ?>
-                                                    <option value=<?= $v['id'] ?>><?= $v['nama_kategori'] ?></option>
-                                                <?php } ?>
+                                            <select id="inputKategori" class="form-select" name="kategori">
+                                                <option value="Makanan">Makanan</option>
+                                                <option value="Minuman">Minuman</option>
+                                                <option value="Lain-lain">Lain-lain</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label for="inputUnit" class="col-sm-2 col-form-label">Unit</label>
                                         <div class="col-sm-10">
-                                            <select id="inputUnit" class="form-select" name="id_unit">
-                                                <?php
-                                                $nomor = 0;
-                                                foreach ($dataUnit as $k => $v) {
-                                                    ?>
-                                                    <option value=<?= $v['id'] ?>><?= $v['nama_unit'] ?></option>
-                                                <?php } ?>
+                                            <select id="inputUnit" class="form-select" name="unit">
+                                                <option value="Bungkus">Bungkus</option>
+                                                <option value="Dus">Dus</option>
+                                                <option value="Liter">Liter</option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="Renceng">Renceng</option>
+                                                <option value="Botol">Botol</option>
+                                                <option value="Pack">Pack</option>
+                                                <option value="Karung">Karung</option>
+
                                             </select>
                                         </div>
                                     </div>
@@ -137,8 +137,8 @@
                                             <td><?= ++$nomor ?></td>
                                             <td><?= $v['id'] ?></td>
                                             <td><?= $v['nama_item'] ?></td>
-                                            <td><?= $v['nama_kategori'] ?></td>
-                                            <td><?= $v['nama_unit'] ?></td>
+                                            <td><?= $v['kategori'] ?></td>
+                                            <td><?= $v['unit'] ?></td>
                                             <td><?= $v['nama_pemasok'] ?></td>
                                             <td><?= $v['harga'] ?></td>
                                             <td>
@@ -190,8 +190,8 @@
                     if (obj.id !== '') {
                         $('#inputId').val(obj.id);
                         $('#inputNama').val(obj.nama_item);
-                        $('#inputKategori').val(obj.id_kategori);
-                        $('#inputUnit').val(obj.id_unit);
+                        $('#inputKategori').val(obj.kategori);
+                        $('#inputUnit').val(obj.unit);
                         $('#inputPemasok').val(obj.id_pemasok);
                         $('#inputHarga').val(obj.harga);
                         $('#inputStok').val(obj.stok);
@@ -221,8 +221,8 @@
         $('#tombolSimpan').on('click', function () {
             var id = $('#inputId').val();
             var nama_item = $('#inputNama').val();
-            var id_kategori = $('#inputKategori').val();
-            var id_unit = $('#inputUnit').val();
+            var kategori = $('#inputKategori').val();
+            var unit = $('#inputUnit').val();
             var id_pemasok = $('#inputPemasok').val();
             var harga = $('#inputHarga').val();
             var stok = $('#inputStok').val();
@@ -240,8 +240,8 @@
                 data: {
                     id: id,
                     nama_item: nama_item,
-                    id_kategori: id_kategori,
-                    id_unit: id_unit,
+                    kategori: kategori,
+                    unit: unit,
                     id_pemasok: id_pemasok,
                     harga: harga,
                     stok: stok,

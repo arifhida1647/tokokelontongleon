@@ -171,7 +171,7 @@
 
                             <div class="card">
                                 <div class="card-header border-0">
-                                    <h3 class="card-title">Online Store Overview</h3>
+                                    <h3 class="card-title">Dashboard Sumarry</h3>
 
                                 </div>
                                 <div class="card-body">

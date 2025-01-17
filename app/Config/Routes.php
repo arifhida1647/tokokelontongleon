@@ -13,17 +13,6 @@ $routes->post('item/simpan', 'Items::simpan',['filter' => 'khususMember']);
 $routes->get('item/edit/(:num)', 'Items::edit/$1',['filter' => 'khususMember']);
 $routes->get('item/hapus/(:num)', 'Items::hapus/$1',['filter' => 'khususMember']);
 
-$routes->get('/unit', 'Unit::index',['filter' => 'khususMember']);
-$routes->post('unit/simpan', 'Unit::simpan',['filter' => 'khususMember']);
-$routes->get('unit/edit/(:num)', 'Unit::edit/$1',['filter' => 'khususMember']);
-$routes->get('unit/hapus/(:num)', 'Unit::hapus/$1',['filter' => 'khususMember']);
-
-
-$routes->get('/kategori', 'Kategori::index',['filter' => 'khususMember']);
-$routes->post('kategori/simpan', 'Kategori::simpan',['filter' => 'khususMember']);
-$routes->get('kategori/edit/(:num)', 'Kategori::edit/$1',['filter' => 'khususMember']);
-$routes->get('kategori/hapus/(:num)', 'Kategori::hapus/$1',['filter' => 'khususMember']);
-
 $routes->get('/pelanggan', 'Pelanggan::index',['filter' => 'khususMember']);
 $routes->post('pelanggan/simpan', 'Pelanggan::simpan',['filter' => 'khususMember']);
 $routes->get('pelanggan/edit/(:num)', 'Pelanggan::edit/$1',['filter' => 'khususMember']);
@@ -60,3 +49,6 @@ $routes->get('/admin', 'admin::index',['filter' => 'khususMember']);
 $routes->post('admin/simpan', 'admin::simpan',['filter' => 'khususMember']);
 $routes->get('admin/edit/(:num)', 'admin::edit/$1',['filter' => 'khususMember']);
 $routes->get('admin/hapus/(:num)', 'admin::hapus/$1',['filter' => 'khususMember']);
+
+
+$routes->get('/test', 'Test::index');

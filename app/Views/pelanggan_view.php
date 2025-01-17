@@ -107,6 +107,7 @@
                                                 <button type="button" class="btn btn-danger btn-sm"
                                                     onclick="hapus(<?php echo $v['id'] ?>)">Delete</button>
 
+
                                             </td>
                                         </tr>
                                     <?php } ?>

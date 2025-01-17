@@ -126,24 +126,6 @@
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="<?php echo base_url('unit') ?>"
-                                    class="nav-link <?= (service('uri')->getSegment(1) == 'unit') ? 'active' : '' ?>">
-                                    <i class="nav-icon fas fa-table-list" style="color: #FF8225;"></i>
-                                    <p class="text-white">
-                                        Unit
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?php echo base_url('kategori') ?>"
-                                    class="nav-link <?= (service('uri')->getSegment(1) == 'kategori') ? 'active' : '' ?>">
-                                    <i class="nav-icon fas fa-table-list" style="color: #FF8225;"></i>
-                                    <p class="text-white">
-                                        Kategori
-                                    </p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                 <?php endif; ?>

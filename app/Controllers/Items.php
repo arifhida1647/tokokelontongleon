@@ -3,10 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ModelItem;
-use App\Models\ModelKategori;
-use App\Models\ModelUnit;
 use App\Models\ModelPemasok;
-use App\Models\ModelLog;
 use CodeIgniter\Controller;
 
 class Items extends Controller
@@ -17,9 +14,7 @@ class Items extends Controller
     protected $modelPemasok;
     public function __construct()
     {
-        $this->model = new ModelItem(); // Initialize ModelItems
-        $this->modelKategori = new ModelKategori();
-        $this->modelUnit = new ModelUnit();
+        $this->model = new ModelItem(); 
         $this->modelPemasok = new ModelPemasok();
     }
 
@@ -57,7 +52,7 @@ class Items extends Controller
                     'min_length' => 'Minimum karakter untuk field {field} adalah 5 karakter'
                 ]
             ],
-            'id_kategori' => [
+            'kategori' => [
                 'label' => 'kategori',
                 'rules' => 'required',
                 'errors' => [
@@ -65,7 +60,7 @@ class Items extends Controller
                     'min_length' => 'Minimum karakter untuk field {field} adalah 5 karakter'
                 ]
             ],
-            'id_unit' => [
+            'unit' => [
                 'label' => 'unit',
                 'rules' => 'required',
                 'errors' => [
@@ -104,8 +99,8 @@ class Items extends Controller
             // Save action
             $id = $this->request->getPost('id');
             $nama_item = $this->request->getPost('nama_item');
-            $id_kategori = $this->request->getPost('id_kategori');
-            $id_unit = $this->request->getPost('id_unit');
+            $kategori = $this->request->getPost('kategori');
+            $unit = $this->request->getPost('unit');
             $id_pemasok = $this->request->getPost('id_pemasok');
             $harga = $this->request->getPost('harga');
             $stok = $this->request->getPost('stok');
@@ -113,8 +108,8 @@ class Items extends Controller
             $data = [
                 'id' => $id,
                 'nama_item' => $nama_item,
-                'id_kategori' => $id_kategori,
-                'id_unit' => $id_unit,
+                'kategori' => $kategori,
+                'unit' => $unit,
                 'id_pemasok' => $id_pemasok,
                 'harga' => $harga,
                 'stok' => $stok,
@@ -142,15 +137,11 @@ class Items extends Controller
 
     public function index()
     {
-        $data['dataKategori'] = $this->modelKategori->orderBy('id', 'desc')->findAll();
-        $data['dataUnit'] = $this->modelUnit->orderBy('id', 'desc')->findAll();
         $data['dataPemasok'] = $this->modelPemasok->orderBy('id', 'desc')->findAll();
 
         $data['dataItem'] = $this->model
-            ->select('tb_item.*, tb_pemasok.nama_pemasok as nama_pemasok, tb_kategori.nama_kategori as nama_kategori, tb_unit.nama_unit as nama_unit, ')
+            ->select('tb_item.*, tb_pemasok.nama_pemasok as nama_pemasok')
             ->join('tb_pemasok', 'tb_item.id_pemasok = tb_pemasok.id')
-            ->join('tb_kategori', 'tb_item.id_kategori = tb_kategori.id')
-            ->join('tb_unit', 'tb_item.id_unit = tb_unit.id')
             ->orderBy('tb_item.id', 'desc')
             ->findAll();
         return view('item_view', $data);

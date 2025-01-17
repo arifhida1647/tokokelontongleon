@@ -138,11 +138,10 @@ class Stokout extends Controller
     {
         // Join tabel stok, pemasok, dan items
         $data['dataStok'] = $this->modelStok
-            ->select('tb_stok.*, tb_pemasok.nama_pemasok as nama_pemasok,tb_kategori.nama_kategori, tb_item.nama_item as nama_item, tb_users.username as username_user')
+            ->select('tb_stok.*, tb_pemasok.nama_pemasok as nama_pemasok, tb_item.nama_item as nama_item, tb_users.username as username_user')
             ->join('tb_pemasok', 'tb_stok.id_pemasok = tb_pemasok.id')
             ->join('tb_item', 'tb_stok.id_item = tb_item.id')
             ->join('tb_users', 'tb_stok.id_user = tb_users.id')
-            ->join('tb_kategori','tb_item.id_kategori = tb_kategori.id')
             ->where('tb_stok.tipe', 'keluar')
             ->orderBy('tb_stok.id_stok', 'desc')
             ->findAll();
