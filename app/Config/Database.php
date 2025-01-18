@@ -26,16 +26,17 @@ class Database extends Config
      */
     public array $default = [
         'DSN' => '',
-        'hostname' => 'db.xekcahifsypweyqpbopj.supabase.co',  // pastikan hostname yang benar
-        'username' => 'postgres',
-        'password' => 'HzpP6zZjgVjG8ykp',  // pastikan password yang benar
-        'database' => 'postgres',
-        'DBDriver' => 'Postgre',
+        'hostname' => 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',  // pastikan hostname yang benar
+        'username' => '1LeBgnPBg2enDXv.root',
+        'password' => 'NSMqCoOI8QBZFp1K',  // pastikan password yang benar
+        'database' => 'posci4',
+        'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'DBDebug' => true,
-        'charset'    => 'utf8',
+        'charset' => 'utf8',
         'swapPre' => '',
         'failover' => [],
+        'port' => 4000,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
         'dateFormat' => [
@@ -43,6 +44,14 @@ class Database extends Config
             'datetime' => 'Y-m-d H:i:s',
             'time' => 'H:i:s',
         ],
+        'encrypt' => array(
+            'ssl_key' => '',
+            'ssl_cert' => '',
+            'ssl_ca' => '',
+            'ssl_capath' => '',
+            'ssl_cipher' => '',
+            'ssl_verify' => FALSE,
+        ),
     ];
 
 
