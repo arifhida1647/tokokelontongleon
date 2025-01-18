@@ -43,10 +43,10 @@ class Database extends Config
         'encrypt' => array(
             'ssl_key' => '',
             'ssl_cert' => '',
-            'ssl_ca' => '/public/cert/isgrootx1.pem',
+            'ssl_ca' => 'cert/isrgrootx1.pem',
             'ssl_capath' => '',
             'ssl_cipher' => '',
-            'ssl_verify' => FALSE,
+            'ssl_verify' => true,
         ),
     ];
 
