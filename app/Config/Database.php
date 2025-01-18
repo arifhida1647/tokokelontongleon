@@ -34,11 +34,7 @@ class Database extends Config
         'DBPrefix' => '',
         'DBDebug' => true,
         'charset' => 'utf8',
-        'swapPre' => '',
-        'failover' => [],
         'port' => 4000,
-        'foreignKeys' => true,
-        'busyTimeout' => 1000,
         'dateFormat' => [
             'date' => 'Y-m-d',
             'datetime' => 'Y-m-d H:i:s',
